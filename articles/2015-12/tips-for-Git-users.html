@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Tips for Git users</title>
+  <meta name="description" content="Git is a powerful tool for Web development, here is some useful tips for Git beginners.">
+
+
+  <!-- CSS files -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
+
+  <link rel="canonical" href="https://renyuanz.github.io/articles/2015-12/tips-for-Git-users">
+  <link rel="alternate" type="application/rss+xml" title="Renyuan&#39;s blog" href="/feed.xml">
+
+  
+
+  <!-- Icons -->
+  <!-- 16x16 -->
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+  <!-- 32x32 -->
+  <link rel="shortcut icon" href="/assets/img/favicon.ico">
+</head>
+
+
+<body>
+  <div class="row">
+    <div class="col s12 m3">
+      <div class="table cover">
+        
+
+<div class="cover-card table-cell table-middle">
+  
+  <img src="https://renyuanz.github.io/assets/img/avatar.jpg" alt="" class="avatar">
+  
+  <a href="https://renyuanz.github.io/" class="author_name">Renyuan</a>
+  <span class="author_job">Full-stack Developer</span>
+  <span class="author_bio mbm">Learning, recording, writing and coding.</span>
+  <nav class="nav">
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="https://renyuanz.github.io/">home</a>
+        <span>/</span>
+      </li>
+       
+      <li class="nav-item">
+        <a href="https://renyuanz.github.io/archive/">Archive</a>
+        
+          <span>/</span>
+        
+      </li>
+        
+      <li class="nav-item">
+        <a href="https://renyuanz.github.io/categories/">Categories</a>
+        
+          <span>/</span>
+        
+      </li>
+              
+      <li class="nav-item">
+        <a href="https://renyuanz.github.io/resume">Resume</a>
+        
+          <span>/</span>
+        
+      </li>
+        
+      <li class="nav-item">
+        <a href="https://renyuanz.github.io/tags/">Tags</a>
+        
+      </li>
+       
+    </ul>
+  </nav>
+  <script type="text/javascript">
+  // based on http://stackoverflow.com/a/10300743/280842
+  function gen_mail_to_link(hs, subject) {
+    var lhs,rhs;
+    var p = hs.split('@');
+    lhs = p[0];
+    rhs = p[1];
+    document.write("<a class=\"social-link-item\" target=\"_blank\" href=\"mailto");
+    document.write(":" + lhs + "@");
+    document.write(rhs + "?subject=" + subject + "\"><i class=\"fa fa-fw fa-envelope\"></i><\/a>");
+  }
+</script>
+<div class="social-links">
+  <ul>
+    
+      <li>
+      <script>gen_mail_to_link('zourenyuan@gmail.com', 'Hello from website');</script>
+      </li>
+    
+    <li><a href="http://twitter.com/renyuan814" class="social-link-item" target="_blank"><i class="fa fa-fw fa-twitter"></i></a></li>
+    
+    
+    
+    
+    
+    
+    <li><a href="http://github.com/renyuanz" class="social-link-item" target="_blank"><i class="fa fa-fw fa-github"></i></a></li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </ul>
+</div>
+
+</div>
+
+      </div>
+    </div>
+    <div class="col s12 m9">
+      <div class="post-listing">
+        <a class="btn" href= "https://renyuanz.github.io/" >
+  Home
+</a>
+
+
+
+<div id="post">
+  <header class="post-header">
+    <h1 title="Tips for Git users">Tips for Git users</h1>
+    <span class="post-meta">
+      <span class="post-date">
+        9 DEC 2015
+      </span>
+      •
+      <span class="read-time" title="Estimated read time">
+  
+  
+    1 min read
+  
+</span>
+
+    </span>
+
+  </header>
+
+  <article class="post-content">
+    <p>If you know nothing about Git, google it, this is not the right place to start learning Git. I wrote this article for developers who know already the basic Git usage and use Git as an important piece of workflow.</p>
+
+<h3 id="always-use-git-status">Always use <code class="highlighter-rouge">git status</code></h3>
+
+<p>It’s good to start off using git with good habits. Using <code class="highlighter-rouge">git status</code> to find where you are is one of them. The terminal’s output shows the actions you can do with the current status.</p>
+
+<h3 id="i-want-see-a-list-of-details-of-my-last-n-commits">I want see a list of details of my last N commits</h3>
+
+<p>For example: to see your last 5 commits</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git log -n 5 --author<span class="o">=</span>Salvador
+</code></pre>
+</div>
+
+<p>If you want a simpler one line solution:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>git log --oneline -n 5 --author<span class="o">=</span>Salvador
+</code></pre>
+</div>
+
+<p>If you like the single line version, try creating an alias for git log like this (this is what I have for zsh)</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">glog</span><span class="o">=</span><span class="s2">"git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</span>
+</code></pre>
+</div>
+
+<p>Now, I can just use:</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>glog -n 5
+</code></pre>
+</div>
+
+<p>And I get a nice output.</p>
+
+<p>Which is colorized, shows the name of the author and also shows the graph and you can still pass in other flags (such as –author) which lets you filter it even more.</p>
+
+<p><a href="http://stackoverflow.com/questions/13542213/git-see-a-list-of-comments-of-my-last-n-commits#answer-13542327">You can see the original answer here.</a></p>
+
+
+  </article>
+</div>
+
+<div class="share-buttons">
+  <h6>Share on: </h6>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text=https://renyuanz.github.io/articles/2015-12/tips-for-Git-users" class="twitter btn" title="Share on Twitter"><i class="fa fa-twitter"></i><span> Twitter</span></a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https://renyuanz.github.io/articles/2015-12/tips-for-Git-users" class="facebook btn" title="Share on Facebook"><i class="fa fa-facebook"></i><span> Facebook</span></a>
+    </li>
+    <li>
+      <a href="https://plus.google.com/share?url=https://renyuanz.github.io/articles/2015-12/tips-for-Git-users" class="google-plus btn" title="Share on Google Plus"><i class="fa fa-google-plus"></i><span> Google+</span></a>
+    </li>
+    <li>
+      <a href="https://news.ycombinator.com/submitlink?u=https://renyuanz.github.io/articles/2015-12/tips-for-Git-users" class="hacker-news btn" title="Share on Hacker News"><i class="fa fa-hacker-news"></i><span> Hacker News</span></a>
+    </li>
+    <li>
+      <a href="https://www.reddit.com/submit?url=https://renyuanz.github.io/articles/2015-12/tips-for-Git-users" class="reddit btn" title="Share on Reddit"><i class="fa fa-reddit"></i><span> Reddit</span></a>
+    </li>
+  </ul>
+</div><!-- end share-buttons -->
+
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'renyuanzblog';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+
+
+        <footer>
+  &copy; 2017 Renyuan. Powered by <a href="http://jekyllrb.com/">Jekyll</a>, <a href="http://github.com/renyuanz/leonids/">leonids theme</a> made with <i class="fa fa-heart heart-icon"></i>
+</footer>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
